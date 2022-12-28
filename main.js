@@ -15,8 +15,26 @@ const input$$ = document.querySelector("input")
 const btnAdd$$ = document.querySelector(".btn-add")
 const list$$ = document.querySelector("ul")
 const empty$$ = document.querySelector(".empty")
+let lastTaskDeleted = ""
 
 
+const checkEmptyInput = (input) => {
+  if (input.value === "")  {
+    return false} else {return true}
+}
+
+const checkAllTasksCompleted = () => {
+  if (list$$.childElementCount === 0)  
+  {return true } else {return false}
+}
+
+const deleteTask = (e) => {
+  const task = e.target.parentElement
+  lastTaskDeleted = task.textContent
+  console.log(task)
+  task.remove()
+  checkAllTasksCompleted() && empty$$.classList.remove("display-none")
+}
 
 const addTask = (e, text) => {
   e.preventDefault()
@@ -28,21 +46,21 @@ const addTask = (e, text) => {
   newTask$$.appendChild(btnDelete$$)
   btnDelete$$.textContent = "x"
   btnDelete$$.className = "btn-delete"
+  btnDelete$$.addEventListener("click", (e) => deleteTask(e))
 
   //reset the input to empty
   input$$.value = ""
 }
 
-const checkEmptyInput = (input) => {
-  if (input.value === "")  {
-    return false} else {return true}
-}
+
 
 
 btnAdd$$.addEventListener("click", (e) => {
   checkEmptyInput(input$$) && addTask(e, input$$.value)
+  !checkAllTasksCompleted() && empty$$.classList.add("display-none")
   }
 )
+
 
 
 
