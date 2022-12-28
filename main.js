@@ -26,12 +26,23 @@ const addTask = (e, text) => {
 
   const btnDelete$$ = document.createElement("button")
   newTask$$.appendChild(btnDelete$$)
-  btnDelete$$.textContent = "X"
+  btnDelete$$.textContent = "x"
   btnDelete$$.className = "btn-delete"
+
+  //reset the input to empty
+  input$$.value = ""
+}
+
+const checkEmptyInput = (input) => {
+  if (input.value === "")  {
+    return false} else {return true}
 }
 
 
-btnAdd$$.addEventListener("click", (e) => {addTask(e, input$$.value)})
+btnAdd$$.addEventListener("click", (e) => {
+  checkEmptyInput(input$$) && addTask(e, input$$.value)
+  }
+)
 
 
 
