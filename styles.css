@@ -58,15 +58,34 @@ li {
   margin-top: 15px;
   display: flex;
 }
-
 li p {
   margin: 0;
   padding: 15px;
   width: 100%;
 }
+li .edit-task {
+  display: flex;
+  width: 100%;
+  background-color: rgb(143, 201, 211);
+  border-radius: 10px;
+}
+li .edit-task__input {
+  width: inherit;
+  background-color: rgba(180, 240, 255, 0);
+  border: none;
+}
+li .edit-task__btn-confirm {
+  border: none;
+  background-color: #404040;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  outline: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 
 .btn-delete {
-  margin-left: auto;
   border: none;
   background-color: #e31746;
   color: white;
@@ -82,6 +101,23 @@ li p {
 .btn-delete:hover {
   cursor: pointer;
   background-color: lightseagreen;
+}
+
+.btn-edit {
+  margin-left: auto;
+  border: none;
+  background-color: #1c94c8;
+  color: rgb(72, 72, 72);
+  font-weight: bold;
+  padding: 5px 10px;
+  outline: none;
+  width: 10%;
+  font-size: 1.2em;
+}
+
+.btn-edit:hover {
+  cursor: pointer;
+  background-color: rgb(197, 236, 255);
 }
 
 .btn-add {
